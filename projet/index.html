@@ -1,0 +1,78 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>S.H.I.E.L.D. Database</title>
+		<link type="text/css" rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<header id="on_accueil">
+			<ul id="barre_on_accueil">
+				<li><a href="index.html">Accueil</a></li>
+				<li><a href="personnage.html">Personnages</a></li>
+				<li><a href="films.html">Citations</a></li>
+				<li><a href="nouveau.html">Créer votre héros</a></li>
+				<li><a href="aboutus.html">About us</a></li>
+				<a href="index.html">
+					<img id = "img_entete" src = "Images/shield_logo.png" width="40px" height="40px">
+				</a>
+			</ul>
+		</header>
+
+
+		<div class="diaporama">
+			<div class="une_slide">
+				<img src="Images/60013549_10155920258011923_3122575643783462912_o.jpg" style="width:100%">
+			</div>
+			<div class="une_slide">
+				<img src="Images/Avengers-Infinity-War-Concept-Art-Chris-Kesler-4-M01.jpg" style="width:100%">
+			</div>
+			<div class="une_slide">
+				<img src="Images/avengers-infinity-war-concet-art-Ryan-Meinerding.jpg" style="width:100%">
+			</div>
+			<div class="une_slide">
+				<img src="Images/DEDq4h0UQAAe48G.jpg" style="width:100%">
+			</div>
+			<div class="une_slide">
+				<img src="Images/endgame-bosslogic-posters-1168895-1280x0.jpeg" style="width:100%">
+			</div>
+			<a class="prev" onclick="slide_succ(-1)">&#10094;</a>
+			<a class="next" onclick="slide_succ(1)">&#10095;</a>
+		</div>
+		<br>
+		<block class="contenu_accueil">
+			<a href ="nouveau.html"><h1 class ="bouton_accueil"><font face="impact"> Entrez dans l'aventure du MCU </font></h1></a>
+			<a href ="personnage.html"><h1 class ="bouton_accueil"><font face="impact"> Des héros mémorables </font></h1></a>
+			<a href ="films.html"><h1 class ="bouton_accueil"><font face="impact"> Les citations les plus marquantes</font></h1></a>
+			<a href ="aboutus.html"><h1 class ="bouton_accueil"><font face="impact"> Qui-sommes nous ? </font></h1></a>
+		</block>
+		<div class="footer">
+			<p>Credits to Marvel ©</p>
+		</div>
+	</body>
+	<main>
+		<script>
+			var slideIndex = 1;
+			showSlides(slideIndex);
+			function slide_succ(n) {
+  				showSlides(slideIndex += n);
+			}
+
+			function currentSlide(n) {
+  				afficheSlidesclick(slideIndex = n);
+			}
+
+			function showSlides(n) {
+  				var i;
+  				var slides = document.getElementsByClassName("une_slide");
+  				if (n > slides.length) {slideIndex = 1} 
+  				if (n < 1) {slideIndex = slides.length}
+  				for (i = 0; i < slides.length; i++) {
+      				slides[i].style.display = "none"; 
+  				}
+  				slides[slideIndex-1].style.display = "block"; 
+			}
+
+
+		</script>
+	</main>
+</html>

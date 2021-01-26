@@ -1,0 +1,281 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>S.H.I.E.L.D. Database</title>
+		<link type="text/css" rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<main class="main_container">	
+			<ul class="barre">
+				<li><a href="index.html">Accueil</a></li>
+				<li><a href="personnage.html">Personnages</a></li>
+				<li><a href="films.html">Citations</a></li>
+				<li><a href="nouveau.html">Créer votre héros</a></li>
+				<li><a href="aboutus.html">About us</a></li>
+				<div id = "img_entete">
+					<img src = "Images/shield_logo.png">
+				</div>
+			</ul>
+		
+			<div class="container_creation">
+				<div id="bloc_description">
+	                <table id="tab1">
+	                    <tr>
+	                        <th><strong>Pseudo</strong></th>
+	                        <th><strong>Nom</strong></th>
+	                        <th><strong>Age</strong></th>
+	                        <th><strong>Rôle</strong></th>
+	                    </tr>
+	                </table>
+				</div>
+				<div id="bloc_image">
+					<button id="bouton_modal" onclick="ouvrirModal()">Ajoute/Modifie ton héros !</button>
+					<div id="image_creation">
+						<img id="imgAfficher1" src="Images/spiderman.png" style="display: none">
+						<img id="imgAfficher2" src="Images/venom.png" style="display: none">
+						<img id="imgAfficher3" src="Images/hulk.png" style="display: none">
+					</div>
+				</div>
+				<div id="bloc_modification">
+					<form class="common" id="info" action="#">
+						<div class="modif_style">
+							<label for="tailleImage">
+								<span>Taille Image:</span>
+							</label>
+							<select id="tailleImage" name="tailleImage">
+								<option value="1">Petit</option>
+								<option value="2" selected="selected">Moyen</option>
+								<option value="3">Grand</option>
+							</select>
+						</div>
+						<div class="modif_style">
+                        	<label for="ordreBloc">
+                            	<span>Ordre des éléments</span>
+                        	</label>
+                        	<select id="ordreBloc" name="ordreBloc">
+                            	<option value="1">Description / Image</option>
+                            	<option value="2">Image / Description</option>
+							</select>
+						</div>
+						<div class="container_bouton">
+		                	<button type="button" id="validerModif" onclick="modif();">Valider</button>
+		                </div>			             
+					</form>
+				</div>
+			</div>
+			<div id="modal">
+				<div id="headerModal">
+					<h1> À quoi ressemble ton héros ? </h1>
+				</div>
+				<div id="contentModal1">
+					<div class="taille_img">
+						<img id="imgModal1" src="Images/spiderman.png" onclick="choisirImg(1)">
+					</div>
+					<div class="taille_img">
+						<img id="imgModal2" src="Images/venom.png" onclick="choisirImg(2)">
+					</div>
+					<div class="taille_img">
+						<img id="imgModal3" src="Images/hulk.png" onclick="choisirImg(3)">
+					</div>
+				</div>
+				<div id="contentModal2">
+					<form class="common" id="info" action="#">
+						<div class="container_nouveau">
+		                    <ul class="form_info">
+		                        <li>
+		                            <div>
+		                                <label for="firstname">Pseudo du héros :</label>
+		                                <input type="text" id="firstname" name="user_name" placeholder="Prénom" required minlength="2" maxlength="30">
+		                            </div>
+		                        </li>
+		                        <li>
+		                            <div>
+		                                <label for="lastname">Nom du héros :</label>
+		                                <input type="text" id="lastname" name="user_lastname" placeholder="Nom" required minlength="2" maxlength="30">
+		                            </div>
+								</li>
+								<li>
+									<div>
+										<label for="age">
+											<span>Âge :</span>
+										</label>
+										<select id="age" name="user_age">
+											<option value="Enfant">0 - 10 ans</option>
+											<option value="Adolescent">11 - 17 ans</option>
+											<option value="Jeune adulte">18 - 24 ans</option>
+											<option value="Adulte">25 - 59 ans</option>
+											<option value="Senior"> + 60 ans</option>
+										</select>
+									</div>
+								</li>
+		                        <li>
+									<div>
+		                            	<label for="role">
+		                                	<span>Rôle :</span>
+		                            	</label>
+		                            	<select id="role" name="user_role">
+		                                	<option value="Gentil">Gentil</option>
+		                                	<option value="Méchant">Méchant</option>
+										</select>
+									</div>
+		                        </li>
+		                    </ul>
+		                    <button type="button" id="validerModal" onclick="test();">Valider</button>
+		                </div>
+					</form>
+				</div>
+				<div id="footerModal">
+					<button id="fermer" onclick="fermerModal()">Fermer</button>
+				</div>
+			</div>
+			<block>
+				
+			</block>
+			<div class="footer">
+				<p>Credits to Marvel ©</p>
+			</div>
+		</main>
+		<script>
+			var imgSelect = 0;
+
+			function ouvrirModal(){
+				document.getElementById("modal").style.top = "0px";
+			}
+
+			function fermerModal() {
+				imgSelect = 0;
+				document.getElementById("modal").style.top = "-1000px";
+			}
+
+			function choisirImg(numero){
+				switch(numero){
+					case 1:
+						imgSelect = 1;
+						document.getElementById("imgModal2").style.border ="none";
+						document.getElementById("imgModal3").style.border ="none";
+						document.getElementById("imgModal1").style.border ="2px solid black";
+						break;
+					case 2:
+						imgSelect = 2;
+						document.getElementById("imgModal1").style.border ="none";
+						document.getElementById("imgModal3").style.border ="none";
+						document.getElementById("imgModal2").style.border ="2px solid black";
+						break;
+					case 3:
+						imgSelect = 3;
+						document.getElementById("imgModal1").style.border ="none";
+						document.getElementById("imgModal2").style.border ="none";
+						document.getElementById("imgModal3").style.border ="2px solid black";
+						break;
+				}
+			}
+
+			function test()
+                {
+                    if (document.getElementById("firstname").checkValidity())
+                    {
+                        if (document.getElementById("lastname").checkValidity())
+                        {
+                            if (document.getElementById("age").checkValidity())
+                            {
+                                if (document.getElementById("role").checkValidity())
+                                {
+                                	supprimer();
+                                    ajouter();
+                                }
+                            }
+                            else
+                            {
+                                alert("Mail invalide");
+                            }
+                        }
+                        else
+                        {
+                            alert("Nom invalide");
+                        }
+                    }
+                    else
+                        {
+                            alert("Prénom invalide");
+                        }
+                }
+
+			function ajouter(){
+                var tr = document.createElement("tr");
+                var td = document.createElement("td");
+                td.textContent = document.getElementById("firstname").value;
+                tr.appendChild(td);
+                var td = document.createElement("td");
+                td.textContent = document.getElementById("lastname").value;
+                tr.appendChild(td);
+                var td = document.createElement("td");
+                td.textContent = document.getElementById("age").value;
+                tr.appendChild(td);
+                var td = document.createElement("td");
+                td.textContent = document.getElementById("role").value;
+                tr.appendChild(td);
+                /*ajouter()*/
+                document.getElementById("tab1").appendChild(tr);
+                if(imgSelect != 0){
+                	afficherImg(imgSelect);
+                }
+                fermerModal();
+			}
+
+            function supprimer()
+            {
+                var tab = document.getElementById("tab1");
+                var taille = tab.getElementsByTagName("tr").length;
+		        for(var i = 1; i < taille; i++) 
+                {
+			        tab.deleteRow(i);
+		        }
+            }
+
+			function afficherImg(numero){
+				switch(numero){
+					case 1:
+						document.getElementById("imgAfficher2").style.display = "none";
+						document.getElementById("imgAfficher3").style.display = "none";
+						document.getElementById("imgAfficher1").style.display = "table";
+						break;
+					case 2:
+						document.getElementById("imgAfficher1").style.display = "none";
+						document.getElementById("imgAfficher3").style.display = "none";
+						document.getElementById("imgAfficher2").style.display = "table";
+						break;
+					case 3:
+						document.getElementById("imgAfficher1").style.display = "none";
+						document.getElementById("imgAfficher2").style.display = "none";
+						document.getElementById("imgAfficher3").style.display = "table";
+						break;
+				}
+			}
+
+			function modif(){
+				var taille = document.getElementById("tailleImage").value;
+				var image = document.getElementById("image_creation");
+				var ordre = document.getElementById("ordreBloc").value;
+				if(taille == 1){
+					image.style.height = "200px";
+					image.style.width = "200px";
+				}else if(taille == 2){
+					image.style.height = "400px";
+					image.style.width = "400px";
+				}else{
+					image.style.height = "600px";
+					image.style.width = "600px";
+				}
+				if(ordre == 1){
+					document.getElementById("bloc_modification").style.order="3";
+					document.getElementById("bloc_image").style.order = "2";
+					document.getElementById("bloc_description").style.order = "1";
+				}else{
+					document.getElementById("bloc_modification").style.order = "3";
+					document.getElementById("bloc_description").style.order = "2";
+					document.getElementById("bloc_image").style.order = "1";
+				}
+			}
+		</script>
+	</body>
+</html>

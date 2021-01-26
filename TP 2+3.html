@@ -1,0 +1,500 @@
+<html>
+    <head>
+        <meta  charset="utf-8">
+        <title>TP 2</title>
+    </head>
+    <style type="text/css">
+        *  { box-sizing: border-box; }
+        body{
+            font-family: Georgia;
+            background-color: rgb(224, 223, 223);
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        ul li{
+            display: inline-block;
+            margin: 6px;
+            padding: 6px;
+            border-bottom: 1px solid rgb(155, 155, 155);
+        }
+
+
+        #info, [id=style_1] {
+            display: flex;
+            padding: 10px;
+            /*border: 1px solid black;*/
+            box-sizing: content-box;
+            /*box-shadow: 5px 7px 2px 3px black;*/
+        }
+
+        #info
+        {
+            width: 100%;
+        }
+
+        input, textarea {
+            font-family: Georgia;
+            font: 1em sans-serif;
+            width: 200px;
+            box-sizing: border-box;
+            font-variant: small-caps;
+            /*border: 1px solid black;*/ 
+        }
+
+        input:invalid {
+            border-bottom: 2px dashed red;
+            caret-color: red;
+
+        }
+
+        button
+        {
+            font-family: Georgia;
+            font-variant: small-caps;
+            border : 0;
+            text-shadow: 1px darkgray;
+            background-color:  rgb(224, 223, 223);
+            padding: 1px;
+
+        }
+        
+        button:hover
+        {
+            color: #F00;
+            cursor: pointer;
+        }
+
+        option
+        {
+            font-family: Georgia;
+            font-variant: small-caps;
+        }
+
+        select
+        {
+            font-family: Georgia;
+            font-variant : small-caps;
+        }
+
+        table
+        {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h1
+        {
+            font-family: Georgia;
+            font-variant: small-caps;
+
+        }
+
+        tr
+        {
+            text-align: center;
+            padding: 5px;
+            margin: 5px;
+        }
+        
+        .disabled
+        {
+            color:white;
+        }
+
+        .barreNavigation a
+        {
+            margin: 2px;
+            padding: 3px;
+        }
+        
+        [id = hello]{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+
+            border-radius: 80px;
+            box-shadow: 5px 7px 2px 3px black;
+        }
+
+        [id = entete]{
+            text-align: center;
+            text-shadow: 1px 1px 1px blue, 0 0 1em darkblue, 0 0 0.2em darkblue;
+            color: lavender;
+            font-family: 'Georgia';
+            font-size: 50px; 
+        }
+
+        [id = menu]{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            
+
+            border: 1px darkgray solid;
+        }
+
+        [id = choix_menu]
+        {
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        [id = tab1], [id = tab2]{
+            width: 100%;
+            border: 1px lightgrey solid;
+            border-collapse: collapse;
+            
+        }
+        td {
+            width: 25%;
+            border: 1px lightgrey solid;
+            border-collapse: collapse;
+        }
+        tr {
+            width: 100%;
+            border: 1px lightgrey solid;
+            border-collapse: collapse;
+        }
+        th {
+            width: 25%;
+            border: 1px lightgrey solid;
+            border-collapse: collapse;
+        }    
+    </style>
+    <body>
+        <header>
+            <h1 id ="entete">THIS IS A HEADER</h1>
+            <img id ="hello" src="https://media3.giphy.com/media/Cmr1OMJ2FN0B2/giphy.gif" width="100px" height="100px">
+            <p>
+                    <nav id="menu">
+                        <ul id="choix_menu"> 
+                        <li id="choix_menu">
+                            <button type="button" id="user_button" onclick= "showUsers();">Utilisateur</button>
+                        </li>
+                        <li id="choix_menu">
+                            <button type="button" id="Tasks" onclick= "showTasks();">Tâches</button>
+                        </li>
+                    </ul>
+                </nav>
+            </p>
+            <p>
+                <form class="common" id="info" action="#">
+                    <ul>
+                        <li>
+                            <div>
+                                <label for="name">Prénom :</label>
+                                <input type="text" id="firstname" name="user_name" placeholder="Prénom" required minlength="2" maxlength="30">
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <label for="name">Nom :</label>
+                                <input type="text" id="lastname" name="user_lastname" placeholder="Nom" required minlength="2" maxlength="30">
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <label for="mail">E-mail :</label>
+                                <input type="email" id="mail" name="user_mail" placeholder="E-mail"required minlength="6" maxlength="90">
+                            </div>
+                        </li>
+                        <li>
+                            <label for="role">
+                                <span>Rôle :</span>
+                            </label>
+                            <select id="role" name="user_role">
+                                <option value="Enseignant" font-variant= "small-caps">Enseignant</option>
+                                <option value="Elève" font-variant= "small-caps">Elève</option>
+                            </select>
+                        </li>
+                    </ul>
+                    <p>
+                        <ul>
+                            <li>
+                                <button type="button" id="bouton_ajouter" onclick= "test();" class="disabled">Ajouter (10)</button>
+                            </li>
+                            <li>
+                                <button type="button" onclick="supprimer();">Tout suprrimer</button>
+                            </li>
+                        </ul>
+                    </p>
+                </form>
+            </p>
+        </header>
+        <p>
+            <h1 id="user_title">Utilisateurs</h1>
+            <main id="style_1">
+                <table id="tab1">
+                    <tr>
+                        <th><strong>Prénom</strong></th>
+                        <th><strong>Nom</strong></th>
+                        <th><strong>E-mail</strong></th>
+                        <th><strong>Rôle</strong></th>
+                    </tr>
+                </table>
+            </main>
+        </p>
+
+
+        <p>
+            <h1 id="task_title">Tâches</h1>
+            <main id="style_1">
+                <table id="tab2">
+                    <tr>
+                        <th><strong>User ID</strong></th>
+                        <th><strong>ID</strong></th>
+                        <th><strong>Titre</strong></th>
+                        <th><strong>Terminé</strong></th>
+                    </tr>
+                </table>
+            </main>
+        </p>
+
+        <script>
+                let page = 0;
+                var compteur = 10;
+                var decompte;
+                var loginForm = document.forms.info;
+                var NbrLignes;
+                console.log();
+                alert('Vous devez attendre 10 secondes avant de pouvoir valider votre formulaire');
+                function test()
+                {
+                    if (document.getElementById("firstname").checkValidity())
+                    {
+                        if (document.getElementById("lastname").checkValidity())
+                        {
+                            if (document.getElementById("mail").checkValidity())
+                            {
+                                if (document.getElementById("role").checkValidity())
+                                {
+                                    ajouter();
+                                }
+                            }
+                            else
+                            {
+                                alert("Mail invalide");
+                            }
+                        }
+                        else
+                        {
+                            alert("Nom invalide");
+                        }
+                    }
+                    else
+                        {
+                            alert("Prénom invalide");
+                        }
+                }
+                function ajouter()
+                {
+                    if(compteur==0)
+                    {
+                    /*console.log(firstname.value);*/
+                    /*alert('OK pour valider.');*/
+                        var tr = document.createElement("tr");
+                        var td = document.createElement("td");
+                        td.textContent = document.getElementById("firstname").value;
+                        tr.appendChild(td);
+                        var td = document.createElement("td");
+                        td.textContent = document.getElementById("lastname").value;
+                        tr.appendChild(td);
+                        var td = document.createElement("td");
+                        td.textContent = document.getElementById("mail").value;
+                        tr.appendChild(td);
+                        var td = document.createElement("td");
+                        td.textContent = document.getElementById("role").value;
+                        tr.appendChild(td);
+                        /*ajouter()*/
+                        document.getElementById("tab1").appendChild(tr);
+                    }
+                    else
+                    {
+                        alert("Attendre la fin du décompte");
+                    }
+                    document.getElementById("bouton_ajouter").innerText = 'Ajouter (10)';
+					document.getElementById("bouton_ajouter").className = 'disabled';
+					compteur   = 10;
+					decompte = window.setInterval(cooldown, 1000);
+					window.setTimeout(ajouter_actif, 10000);
+                }
+                function supprimer()
+                {
+                    var tab = document.getElementById("tab1");
+                    var taille = tab.getElementsByTagName("tr").length;
+			        for(var i = 1; i < taille; i++) 
+                    {
+				        tab.deleteRow(1);
+			        }
+                }
+		        function scroll() 
+                {
+			        var scrolling = ((document.body.scrollTop) || (document.documentElement.scrollTop));
+			        var formulaire = document.querySelector("#info");
+                    if(formulaire.style.display=="table"){
+			            if(scrolling > (document.querySelector("header").offsetHeight - formulaire.offsetHeight) )
+                        {
+				            formulaire.style.display     = "block";
+				            formulaire.style.position    = "fixed";
+				            formulaire.style.top         = "0px";
+				
+				            formulaire.style.left        = "0px";
+				            formulaire.style.right       = "0px";
+				            formulaire.style.marginLeft  = "auto";
+				            formulaire.style.marginRight = "auto";
+			            }       
+                        else {
+				            formulaire.style.position = "static";
+			            }
+                    }
+		        }
+                addEventListener("scroll", scroll, false);
+                function ajouter_actif() 
+                {
+                    document.getElementById("bouton_ajouter").className = '';
+                    document.getElementById("bouton_ajouter").innerText = 'Ajouter';
+			        clearInterval(decompte);
+			        compteur = 0;
+		        }
+		        function cooldown()
+                 {
+			        if(compteur > 0) 
+                    {   
+                        document.getElementById("bouton_ajouter").innerText = 'Ajouter ('+compteur+')';
+			            document.getElementById("bouton_ajouter").className = "disabled";
+                        compteur--;
+                    }
+		        }
+		        window.setTimeout(ajouter_actif, 10000);
+		        decompte   = window.setInterval(cooldown, 1000);
+
+                function showUsers()
+                {
+                    document.getElementById("info").style.display = "table";
+                    document.getElementById("user_title").style.display = "table";
+                    document.getElementById("task_title").style.display = "none";
+                    document.getElementById("tab1").style.display = "table";
+                    document.getElementById("tab2").style.display = "none";
+                }
+
+                function showTasks()
+                {
+                    document.getElementById("info").style.display = "none";
+                    document.getElementById("task_title").style.display = "table";
+                    document.getElementById("user_title").style.display = "none";
+                    document.getElementById("tab2").style.display = "table";
+                    document.getElementById("tab1").style.display = "none";
+                }
+
+                function GoToPage(NumPage) {
+			        if(NumPage >= 0 && NumPage < NbrLignes/10){
+                        page = NumPage;
+                    }
+			        getTasks();
+		        }
+
+                function Precedent() {
+			        GoToPage(page-1);
+		        }
+
+                function Suivant() {
+			        GoToPage(page+1);
+		        }
+		
+
+                function getTasks() /*A l'appel on remarque que dans la console figure des datas*/
+                {
+                    fetch('https://jsonplaceholder.typicode.com/todos')
+                    .then(response => response.json())                                    	 
+                    .then(function (data) {
+                        console.log('data', data);
+                        /*for(var i=0; i < data.length; i++)
+                        {
+                            createTask(data[i].userId,data[i].id,data[i].title,data[i].completed);  => Exercice 3 (fin)
+                        }*/
+
+                        NbrLignes = data.length;
+                        
+                        if(page < NbrLignes/10) {
+					        clearTasks();
+                            
+                            for(let i = page * 10; i < page * 10 + 10; i++) {
+                                createTask(data[i].userId,data[i].id,data[i].title,data[i].completed);
+                            }
+						}
+
+                        let pages = NbrLignes/10;
+                        let tableau_task = document.getElementById("tab2");
+			            tableau_task.removeChild(tableau_task.lastChild);
+			            
+			            let div = document.createElement("div");
+			            div.className = "barreNavigation";
+                        div.id = "barreNav";
+			            if(page > 0) {
+				            let a = document.createElement("a");
+				            a.textContent = '\u2190';
+				            a.href = 'javascript:void(0);';
+				            a.onclick = Precedent;
+				            div.appendChild(a);
+			            }
+
+			            for(let i = 0; i < pages; i++) {
+				            let a = document.createElement("a");
+				            a.textContent = i + 1;
+				            a.href = 'javascript:void(0);';
+				            a.onclick = function(){GoToPage(i)};
+				            div.appendChild(a);
+			            }
+			
+			            if(page < pages - 1) {
+				            a = document.createElement("a");
+				            a.textContent = '\u2192';
+				            a.href = 'javascript:void(0);';
+				            a.onclick = Suivant;
+				            div.appendChild(a);
+			            }
+			            tableau_task.appendChild(div);
+					});
+                }
+                getTasks();
+
+                function createTask(userId, id, title, completed)
+                {
+                    let tr = document.createElement("tr");
+                    let td = document.createElement("td");
+                    td.textContent = userId;
+                    tr.appendChild(td);
+                    td = document.createElement("td");
+                    td.textContent = id;
+                    tr.appendChild(td);
+                    td = document.createElement("td");
+                    td.textContent = title;
+                    tr.appendChild(td);
+                    td = document.createElement("td");
+                    td.textContent = completed;
+                    tr.appendChild(td);
+                    document.getElementById("tab2").appendChild(tr);
+                }
+
+                function clearTasks() {
+			        let TabTasks = document.getElementById("tab2");
+			        let size = TabTasks.getElementsByTagName("tr").length;
+			        for(let i = 1; i < size; i++) {
+				        TabTasks.deleteRow(1);
+			        }
+                    //let barre_de_tache = document.querySelector("a");
+                    //barre_de_tache.removeChild(tableau_task.lastChild);
+                    let div = document.getElementById("barreNav");
+                    if(div){
+                        div.parentNode.removeChild(div);
+                    }
+		        }
+        </script>
+    </body>
+</html>

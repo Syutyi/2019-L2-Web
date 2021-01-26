@@ -1,0 +1,114 @@
+<html>
+    <head>
+        <meta  charset="utf-8">
+        <title>EXERCICE 1</title>
+    </head>
+    <body>
+        <style type="text/css">
+            [id=bordure]{
+                border: darkgray 1px solid;
+            }
+
+            [id=liste_1]{
+                font-size: small;
+                font-family: Impact;
+                font-style: italic;
+                color:darkblue;
+            }
+            p {
+                background-color:lightgrey;
+                color:black;
+            }
+            h2{
+                text-shadow: 1px 1px 1px blue, 0 0 1em darkblue, 0 0 0.2em darkblue;
+            color: lavender;
+            }
+            h1,h2{
+                border-bottom: 2px black solid;
+            }
+            li{
+                display : inline;
+                border: 1px blue solid;
+                border-radius: 3px;
+                list-style-type:georgian;
+                cursor: pointer;
+            }
+            li:hover,
+            li:active,
+            li:focus {
+                background-color: lavender;
+                text-decoration:none;
+            }
+            table {
+                border: 1px lightgrey solid;
+                border-collapse: collapse;
+            }
+            td {
+                border: 1px lightgrey solid;
+                border-collapse: collapse;
+            }
+            tr {
+                border: 1px lightgrey solid;
+                border-collapse: collapse;
+            }
+            th {
+                border: 1px lightgrey solid;
+                border-collapse: collapse;
+            }
+
+        </style>
+
+
+
+        <h1>TP 1 :</h1>
+        <p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</strong> Aenean 
+         imperdiet placerat est ac condimentum. Nulla accumsan lectus a 
+         nibh scelerisque venenatis. In in efficitur justo. <br>Quisque vel nulla et 
+         nibh gravida egestas. Pellentesque lobortis interdum magna vel 
+         vulputate. Etiam facilisis vulputate pharetra. Cras eu massa urna.
+        </p>
+
+        <h2>Un deuxième titre...</h2>
+        <p id="bordure">Ceci est un autre paragraphe !<br>
+        Intelligence without ambition is a bird without wings. Yup, I just don't know what to write :/
+        </p>
+
+        <h3>Films préférés (Ceci est bien sûr une liste aléatoire...) :</h3>
+        <ol id="liste_1">
+            <li>Avengers : End Game</li>
+            <li>Your name</li>
+            <li>The grudge</li>
+            <li>Suicid squad</li>
+        </ol>
+
+        <table>
+            <tr>
+                <th><strong>Films</strong></th>
+                <th><strong>Annee</strong></th>
+                <th><strong>Note sur 5</strong></th>
+            </tr>
+            <tr>
+                <td>Avengers : End Game</td>
+                <td>2019</td>
+                <td>4,4</td>
+            </tr>
+            <tr>
+                <td>Your name</td>
+                <td>2016</td>
+                <td>4,7</td>
+            </tr>
+            <tr>
+                <td>The grudge</td>
+                <td>2003</td>
+                <td>3,8</td>
+            </tr>
+            <tr>
+                <td colspan="2">Suicid squad</td>
+                <td>2019</td>
+            </tr>
+        </table>
+
+
+
+    </body>
+</html>
